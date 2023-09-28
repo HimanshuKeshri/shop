@@ -99,15 +99,12 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
- if(req.session.user.email  == 'himanshukeshri0412001@gmail.com'){
-    res.locals.isAdmin = true;
- }else{
-   res.locals.isAdmin = false;
- }
-  //console.log(":::::",res.locals.isAdmin);
-  //res.locals.isAdmin = req.session.user.email  == 'himanshukeshri0412001@gmail.com' ? true : false
+  if(req.session.isLoggedIn){
+    res.locals.isAdmin = req.session.user.email  == 'himanshukeshri0412001@gmail.com' ? true : false
+  }
   next();
 });
+
 
 app.use((req, res, next) => {
   // throw new Error('Sync Dummy');
