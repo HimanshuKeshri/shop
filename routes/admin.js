@@ -10,6 +10,9 @@ const isAdmin = require('../middleware/is-admin');
 
 const router = express.Router();
 
+router.get('/orders', isAuth, isAdmin, adminController.getOrders);
+
+
 // /admin/add-product => GET
 router.get('/add-product', isAuth, isAdmin, adminController.getAddProduct);
 

@@ -6,6 +6,25 @@ const { validationResult } = require('express-validator/check');
 
 const Product = require('../models/product');
 
+const Order = require('../models/order');
+
+
+exports.getOrders = (req, res, next) => {
+  Order.find()
+  .then(orders => {
+      res.render('shop/receivedOrders', {
+        path: 'orders',
+        pageTitle: 'Received Orders',
+        orders: orders
+      });
+    })
+    .catch(err => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
+};
+
 exports.getAddProduct = (req, res, next) => {
   res.render('admin/edit-product', {
     pageTitle: 'Add Product',
