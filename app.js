@@ -24,7 +24,7 @@ const User = require('./models/user');
 //   process.env.MONGO_PASSWORD
 // }@cluster0-ntrwp.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
 
-const MONGODB_URI = "mongodb+srv://himanshu:keshri@cluster0.jq5ilvq.mongodb.net/shop"; // 'mongodb://localhost:27017/shop'  //local mongodb
+const MONGODB_URI = "mongodb+srv://USERNAME:PASSWORD@cluster0.jq5ilvq.mongodb.net/shop"; // 'mongodb://localhost:27017/shop'  //local mongodb
 
 const app = express();
 const store = new MongoDBStore({
